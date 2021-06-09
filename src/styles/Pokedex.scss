@@ -1,0 +1,48 @@
+
+$blue: #566CD6;
+$blue1 : #7789DF;
+$text: #40415E;
+
+$shadow: 0px 4px 4px rgba(86, 108, 214, 0.15);
+
+
+/* Inician mixins */
+
+$mobileMinusHeight: 699px;
+$mobileMinusWidth: 330px;
+$tablet: 768px;
+$laptop: 1152px;
+$desktop: 1440px;
+$desktopExtra: 1455px;
+
+@mixin mobileMinus {
+  @media (max-height: #{$mobileMinusHeight}) and (max-width: #{$mobileMinusWidth}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin desktopExtra {
+  @media (min-width: #{$desktopExtra}) {
+    @content;
+  }
+}
+
+/* Terminan mixins */
