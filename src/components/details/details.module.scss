@@ -1,0 +1,145 @@
+@import '../../styles/Pokedex.scss';
+.container_details{
+ width: 100%;
+ display: grid;
+ grid-template-columns: 100%;
+ @include tablet{
+     grid-template-columns: 40% 60%;
+ }
+ .container_img{
+    padding: 30px 10px 30px 10px;
+    margin-top: 30px;
+    margin-left: auto ;
+    margin-right: auto;
+    background-color: white;
+    border:none;
+    display: flex;
+    align-items: center;
+    width: 75%;
+    height: fit-content;
+    @include tablet{
+        width: auto;
+        margin:30px 10%;
+    }
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: $shadow;
+    .principal_img{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .secundary_img{
+        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        img{
+            margin: 20px;
+        }
+    }
+ }
+ .container_info{
+    padding: 30px 30px 30px 30px;
+    margin-top: 30px;
+    margin-left: auto ;
+    margin-right: auto;
+    background-color: white;
+    border:none;
+    width: 75%;
+    @include tablet{
+        width: auto;
+        margin:30px;
+    }
+    flex-direction: column;
+    cursor: pointer;
+    border-radius: 16px;
+    box-shadow: $shadow;   
+    .name{
+        p{
+            margin: 0;
+            padding: 0;
+            color: $text;
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+    }
+    .type{
+        p{
+            font-size: 12px;
+            margin-bottom: 40px;
+            text-transform: capitalize;
+            span{
+                border-radius: 15px;
+                color: white;
+                padding: 2px 7px 2px 7px;
+                margin: 5px;
+
+                &.green
+                {
+                    background-color: rgb(39, 139, 39);
+                }
+              &.purple{
+                  background-color: rgb(124, 54, 124);
+              }
+              &.orange{
+                  background-color: orange;
+              }
+              &.sky{
+                  background-color: rgb(132, 234, 241);
+              }
+              &.blue{
+                  background-color: rgb(52, 52, 163);
+              }
+              &.bug{
+                  background-color: rgb(19, 92, 19);
+              }
+              &.gray{
+                background-color: grey;
+              }
+              &.yellow{
+                  background-color:yellow;
+                  color: #000;
+              }
+              &.rock{
+                  background-color: rgb(138, 138, 48);
+              }
+              &.default{
+                  background-color: thistle;
+              }
+
+            }
+        }
+    }
+    .details{
+        .title{
+            margin: 0;
+            padding: 0;
+            color: $text;
+            font-weight: 650;
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+        .text{
+            margin: 0;
+            padding: 0;
+            color: $text;
+        }
+        hr{
+            border: .1px solid $sky;
+            background-color: $sky;
+        }
+    }
+    .container_imgshiny{
+        .title{
+            margin: 0;
+            padding: 0;
+            color: $text;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+    }
+ }
+}

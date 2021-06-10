@@ -10,7 +10,7 @@ const Header = () => {
       <div className={styles.container_nav}>
         <div className={styles.hamburger_icon}>
           <Image
-            src="/assets/Icons/menu.svg"
+            src="/assets/Icons/Menu.svg"
             alt="icono menu"
             width="40px"
             height="40px"

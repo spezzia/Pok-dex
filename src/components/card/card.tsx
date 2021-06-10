@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import Link from 'next/link';
 import styles from './card.module.scss';
 import poke from '../../models/pokemon';
 
@@ -45,18 +46,19 @@ const Card: FC<CardInterface> = ({ url }) => {
   };
 
   return (
-    <button className={styles.container_card} type="button">
+    <div className={styles.container_card}>
       <div className={styles.name}>
-        <p>{pokemon?.name}</p>
+        <Link href="/details/[id]" as={`/details/${pokemon?.id}`}>
+          <a>{pokemon?.name}</a>
+        </Link>
       </div>
       <div className={styles.id}>
-        <p>{pokemon?.id}</p>
+        <p>{pokemon?.id.toString().padStart(3, `0`)}</p>
       </div>
       <div>
-        <p>
+        <p className={styles.img}>
           <img
             src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon?.id}.png `}
-            className={styles.img}
             alt="pokemon img"
           />
         </p>
@@ -68,7 +70,7 @@ const Card: FC<CardInterface> = ({ url }) => {
           ))}
         </p>
       </div>
-    </button>
+    </div>
   );
 };
 
