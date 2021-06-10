@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Image from 'next/image';
 
 import styles from './header.module.scss';
+import AplicationContext from '../context/appcontext';
 
 const Header = () => {
-  const [search, setsearch] = useState(``);
+  const AppContext = useContext(AplicationContext);
   return (
     <div className={styles.container_header}>
       <div className={styles.container_nav}>
@@ -30,7 +31,7 @@ const Header = () => {
           placeholder="Search"
           type="text"
           onChange={(e) => {
-            setsearch(e.target.value);
+            AppContext.setSearch(e.target.value);
           }}
         />
         <button type="button">
