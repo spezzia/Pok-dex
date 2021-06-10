@@ -4,9 +4,14 @@ import LayoutCards from '@/components/layoutCards/layoutCards';
 import User from '@/components/user/user';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
+import fetch from 'node-fetch';
+import ErrorPage from 'next/error';
 import styles from '../styles/Home.module.css';
 
 export default function Home({ data }: any) {
+  if (!data) {
+    return <ErrorPage statusCode={404} />;
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -38,14 +43,21 @@ interface PokeInterface {
   results: ResultInterface[];
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`);
-  const data: PokeInterface = await res.json();
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  try {
+    const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`);
+    const data: PokeInterface = await resp.json();
 
-  /* const dataa: pokemon[] = await Promise.all(
+    /* const dataa: pokemon[] = await Promise.all(
     data.results.map(({ url }) =>
       fetch(url).then((response) => response.json()),
     ),
   ); */
-  return { props: { data } };
+    return { props: { data } };
+  } catch {
+    res.statusCode = 404;
+    return {
+      props: {},
+    };
+  }
 };
