@@ -1,6 +1,5 @@
 import Header from '@/components/header/header';
 import LayoutApp from '@/components/layoutApp/layoutApp';
-import LayoutCards from '@/components/layoutCards/layoutCards';
 import User from '@/components/user/user';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
@@ -21,7 +20,6 @@ export default function Details({ data }: any) {
         rightContent={
           <>
             <Header />
-            <LayoutCards />
           </>
         }
       />
