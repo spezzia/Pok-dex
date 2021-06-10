@@ -1,15 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './card.module.scss';
-import { Type } from '../../models/pokemon';
+import poke from '../../models/pokemon';
 
 interface CardInterface {
-  name: string;
-  id: number;
+  url: string;
+  /* id: number;
   img: string;
-  type: Type[];
+  type: Type[]; */
 }
 
-const Card: FC<CardInterface> = ({ name, id, img, type }) => {
+const Card: FC<CardInterface> = ({ url }) => {
+  const [pokemon, setpokemon] = useState<poke>();
+
+  useState(() => {
+    fetch(url).then((result) => {
+      result.json().then((json) => {
+        setpokemon(json);
+      });
+    });
+  });
   const getcolor = (tipo: string) => {
     switch (tipo) {
       case `grass`:
@@ -38,20 +47,23 @@ const Card: FC<CardInterface> = ({ name, id, img, type }) => {
   return (
     <button className={styles.container_card} type="button">
       <div className={styles.name}>
-        <p>{name}</p>
+        <p>{pokemon?.name}</p>
       </div>
       <div className={styles.id}>
-        <p>{id}</p>
+        <p>{pokemon?.id}</p>
       </div>
       <div>
         <p>
-          <img src={img} className={styles.img} alt="pokemon img" />
+          <img
+            src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon?.id}.png `}
+            className={styles.img}
+            alt="pokemon img"
+          />
         </p>
       </div>
       <div className={styles.type}>
         <p>
-          {` `}
-          {type.map((i) => (
+          {pokemon?.types.map((i) => (
             <span className={getcolor(i.type.name)}>{i.type.name}</span>
           ))}
         </p>

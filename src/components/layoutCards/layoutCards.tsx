@@ -1,11 +1,18 @@
-import Pokemon from '@/models/pokemon';
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import Card from '../card/card';
 import style from './layoutCard.module.scss';
 
+interface ResultInterface {
+  name: string;
+  url: string;
+}
+interface PokeInterface {
+  results: ResultInterface[];
+}
+
 interface LayoutCardsnterface {
-  pokemon: Pokemon[];
+  pokemon: PokeInterface;
 }
 
 const LayoutCards: FC<LayoutCardsnterface> = ({ pokemon }) => {
@@ -13,13 +20,13 @@ const LayoutCards: FC<LayoutCardsnterface> = ({ pokemon }) => {
   return (
     <div>
       <div className={style.container_layout}>
-        {pokemon.slice(items, items + 10).map((item) => (
-          <div className={style.container_item} key={item.id}>
+        {pokemon.results.slice(items, items + 10).map((item) => (
+          <div className={style.container_item} key={item.name}>
             <Card
-              name={item.name}
-              id={item.id}
-              img={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png `}
-              type={item.types}
+              url={item.url}
+              // id={item.id}
+              // img={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png `}
+              // type={item.types}
             />
           </div>
         ))}

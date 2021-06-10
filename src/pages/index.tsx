@@ -5,7 +5,6 @@ import User from '@/components/user/user';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import styles from '../styles/Home.module.css';
-import pokemon from '../models/pokemon';
 
 export default function Home({ data }: any) {
   return (
@@ -23,7 +22,7 @@ export default function Home({ data }: any) {
         rightContent={
           <>
             <Header />
-            <LayoutCards pokemon={data as pokemon[]} />
+            <LayoutCards pokemon={data as PokeInterface} />
           </>
         }
       />
@@ -43,10 +42,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`);
   const data: PokeInterface = await res.json();
 
-  const dataa: pokemon[] = await Promise.all(
+  /* const dataa: pokemon[] = await Promise.all(
     data.results.map(({ url }) =>
       fetch(url).then((response) => response.json()),
     ),
-  );
-  return { props: { data: dataa } };
+  ); */
+  return { props: { data } };
 };
