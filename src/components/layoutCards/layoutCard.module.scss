@@ -17,3 +17,23 @@
         grid-template-columns: 33% 33% 33%;   
     }
 }
+.container_pagination{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .disable{
+        color: #666666;
+        img{
+            color: #666666;
+        }
+    }
+}

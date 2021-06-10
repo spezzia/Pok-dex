@@ -42,9 +42,42 @@
             span{
                 border-radius: 15px;
                 color: white;
-                background-color: orange;
                 padding: 2px 7px 2px 7px;
                 margin: 5px;
+
+                &.green
+                {
+                    background-color: rgb(39, 139, 39);
+                }
+              &.purple{
+                  background-color: rgb(124, 54, 124);
+              }
+              &.orange{
+                  background-color: orange;
+              }
+              &.sky{
+                  background-color: rgb(132, 234, 241);
+              }
+              &.blue{
+                  background-color: rgb(52, 52, 163);
+              }
+              &.bug{
+                  background-color: rgb(19, 92, 19);
+              }
+              &.gray{
+                background-color: grey;
+              }
+              &.yellow{
+                  background-color:yellow;
+                  color: #000;
+              }
+              &.rock{
+                  background-color: rgb(138, 138, 48);
+              }
+              &.default{
+                  background-color: thistle;
+              }
+
             }
         }
     }
