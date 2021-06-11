@@ -5,7 +5,7 @@
     height: 100%;
     width: 100%;
     grid-template-columns: 0% 100%;
-
+    font-family: $ubuntu;
     @include tablet{
         grid-template-columns: 20% 80%;
     }
@@ -17,6 +17,6 @@
     .right{
         max-height: 100vh;
         overflow: auto;
-        background: linear-gradient(#f2f4ff, #fbfcff);
+        background: $bg
     }
 }

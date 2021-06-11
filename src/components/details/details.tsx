@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styles from './details.module.scss';
 import pokemon from '../../models/pokemon';
+import CardImage from '../cardimg/cardimg';
 
 interface DetailsInterface {
   info: pokemon;
@@ -34,20 +35,11 @@ const Details: FC<DetailsInterface> = ({ info }) => {
 
   return (
     <div className={styles.container_details}>
-      <div className={styles.container_img}>
-        <div className={styles.principal_img}>
-          <img
-            src={`https://pokeres.bastionbot.org/images/pokemon/${info.id}.png `}
-            alt="pokemon"
-            width="130px"
-            height="130px"
-          />
-        </div>
-        <div className={styles.secundary_img}>
-          <img src={info.sprites.back_default} alt="pokemon" width="80px" />
-          <img src={info.sprites.front_default} alt="pokemon" width="80px" />
-        </div>
-      </div>
+      <CardImage
+        id={info.id}
+        back={info.sprites.back_default}
+        front={info.sprites.front_default}
+      />
       <div className={styles.container_info}>
         <div className={styles.name}>
           <p>{info.name}</p>
@@ -55,7 +47,9 @@ const Details: FC<DetailsInterface> = ({ info }) => {
         <div className={styles.type}>
           <p>
             {info.types.map((i) => (
-              <span className={getcolor(i.type.name)}>{i.type.name}</span>
+              <span key={i.type.name} className={getcolor(i.type.name)}>
+                {i.type.name}
+              </span>
             ))}
           </p>
         </div>

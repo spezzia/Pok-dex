@@ -52,7 +52,7 @@ const LayoutCards: FC<LayoutCardsnterface> = ({ pokemon }) => {
           .slice(AppContext.items, AppContext.items + 10)
           .map((item) => (
             <div className={style.container_item} key={item.name}>
-              <Card url={item.url} />
+              <Card url={item.url} key={item.name} />
             </div>
           ))}
       </div>

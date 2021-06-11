@@ -47,12 +47,6 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   try {
     const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`);
     const data: PokeInterface = await resp.json();
-
-    /* const dataa: pokemon[] = await Promise.all(
-    data.results.map(({ url }) =>
-      fetch(url).then((response) => response.json()),
-    ),
-  ); */
     return { props: { data } };
   } catch {
     res.statusCode = 404;

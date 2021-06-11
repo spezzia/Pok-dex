@@ -66,7 +66,9 @@ const Card: FC<CardInterface> = ({ url }) => {
           <div className={styles.type}>
             <p>
               {pokemon?.types.map((i) => (
-                <span className={getcolor(i.type.name)}>{i.type.name}</span>
+                <span key={i.type.name} className={getcolor(i.type.name)}>
+                  {i.type.name}
+                </span>
               ))}
             </p>
           </div>

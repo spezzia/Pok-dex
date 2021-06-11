@@ -7,47 +7,12 @@
  @include tablet{
      grid-template-columns: 40% 60%;
  }
- .container_img{
-    padding: 30px 10px 30px 10px;
-    margin-top: 30px;
-    margin-left: auto ;
-    margin-right: auto;
-    background-color: white;
-    border:none;
-    display: flex;
-    align-items: center;
-    width: 250px;
-    height: 200px;
-    @include tablet{
-        width: 200px;
-        height: 200px;
-        margin-right: 10px;
-        margin-left: auto;
-    }
-    flex-direction: column;
-    border-radius: 16px;
-    box-shadow: $shadow;
-    .principal_img{
-        display: flex;
-        width: 200px;
-        height: 200px;
-        justify-content: center;
-    }
-    .secundary_img{
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        img{
-            margin: 20px;
-        }
-    }
- }
  .container_info{
     padding: 30px 10px 30px 10px;
     margin-top: 30px;
     margin-left: auto ;
     margin-right: auto;
-    background-color: white;
+    background-color:$white;
     border:none;
     width: 250px;
     @include tablet{
@@ -86,7 +51,7 @@
             }
             span{
                 border-radius: 15px;
-                color: white;
+                color: $white;
                 padding: 2px 7px 2px 7px;
                 margin: 5px;
 

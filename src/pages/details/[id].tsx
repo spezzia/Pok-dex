@@ -31,7 +31,10 @@ export default function Details({ data }: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const id = params !== undefined ? params.id : `0`;
+  let id = params !== undefined ? params.id : `0`;
+  if (Number(id) > 151) {
+    id = `151`;
+  }
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
   const data = await res.json();
   return { props: { data } };
