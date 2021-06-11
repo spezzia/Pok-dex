@@ -39,7 +39,8 @@ const Details: FC<DetailsInterface> = ({ info }) => {
           <img
             src={`https://pokeres.bastionbot.org/images/pokemon/${info.id}.png `}
             alt="pokemon"
-            width="50%"
+            width="130px"
+            height="130px"
           />
         </div>
         <div className={styles.secundary_img}>

@@ -2,6 +2,7 @@
 .container_details{
  width: 100%;
  display: grid;
+ margin-bottom: 100px;
  grid-template-columns: 100%;
  @include tablet{
      grid-template-columns: 40% 60%;
@@ -15,22 +16,24 @@
     border:none;
     display: flex;
     align-items: center;
-    width: 75%;
-    height: fit-content;
+    width: 250px;
+    height: 200px;
     @include tablet{
-        width: auto;
-        margin:30px 10%;
+        width: 200px;
+        height: 200px;
+        margin-right: 10px;
+        margin-left: auto;
     }
     flex-direction: column;
     border-radius: 16px;
     box-shadow: $shadow;
     .principal_img{
         display: flex;
-        width: 100%;
+        width: 200px;
+        height: 200px;
         justify-content: center;
     }
     .secundary_img{
-        margin-top: 20px;
         display: flex;
         width: 100%;
         justify-content: center;
@@ -40,16 +43,19 @@
     }
  }
  .container_info{
-    padding: 30px 30px 30px 30px;
+    padding: 30px 10px 30px 10px;
     margin-top: 30px;
     margin-left: auto ;
     margin-right: auto;
     background-color: white;
     border:none;
-    width: 75%;
+    width: 250px;
     @include tablet{
-        width: auto;
-        margin:30px;
+        padding: 30px 20px 30px 20px;
+        width: 70%;
+        height: 400px;
+        margin-right: auto;
+        margin-left: 10px;
     }
     flex-direction: column;
     cursor: pointer;
@@ -63,6 +69,10 @@
             font-weight: 700;
             font-size: 30px;
             text-transform: capitalize;
+            text-align: center;
+            @include tablet{
+                text-align: left;
+            }
         }
     }
     .type{
@@ -70,6 +80,10 @@
             font-size: 12px;
             margin-bottom: 40px;
             text-transform: capitalize;
+            text-align: center;
+            @include tablet{
+                text-align: left;
+            }
             span{
                 border-radius: 15px;
                 color: white;

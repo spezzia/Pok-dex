@@ -21,7 +21,7 @@ export default function Details({ data }: any) {
         }
         rightContent={
           <>
-            <Header />
+            <Header goback />
             <DetailsPoke info={data} />
           </>
         }

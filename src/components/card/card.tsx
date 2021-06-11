@@ -46,31 +46,33 @@ const Card: FC<CardInterface> = ({ url }) => {
   };
 
   return (
-    <div className={styles.container_card}>
-      <div className={styles.name}>
-        <Link href="/details/[id]" as={`/details/${pokemon?.id}`}>
-          <a>{pokemon?.name}</a>
-        </Link>
-      </div>
-      <div className={styles.id}>
-        <p>{pokemon?.id.toString().padStart(3, `0`)}</p>
-      </div>
-      <div>
-        <p className={styles.img}>
-          <img
-            src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon?.id}.png `}
-            alt="pokemon img"
-          />
-        </p>
-      </div>
-      <div className={styles.type}>
-        <p>
-          {pokemon?.types.map((i) => (
-            <span className={getcolor(i.type.name)}>{i.type.name}</span>
-          ))}
-        </p>
-      </div>
-    </div>
+    <Link href="/details/[id]" as={`/details/${pokemon?.id}`}>
+      <a className={styles.link}>
+        <div className={styles.container_card}>
+          <div className={styles.name}>
+            <p>{pokemon?.name}</p>
+          </div>
+          <div className={styles.id}>
+            <p>{pokemon?.id.toString().padStart(3, `0`)}</p>
+          </div>
+          <div>
+            <p className={styles.img}>
+              <img
+                src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon?.id}.png `}
+                alt="pokemon img"
+              />
+            </p>
+          </div>
+          <div className={styles.type}>
+            <p>
+              {pokemon?.types.map((i) => (
+                <span className={getcolor(i.type.name)}>{i.type.name}</span>
+              ))}
+            </p>
+          </div>
+        </div>
+      </a>
+    </Link>
   );
 };
 
